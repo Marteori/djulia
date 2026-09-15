@@ -1,5 +1,7 @@
 package com.djulia.levelRegistry;
 
+import com.djulia.tileRegistry.TileRegistry;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,10 +9,16 @@ import java.util.Set;
 
 public class LevelRegistry {
 
+    private static final LevelRegistry INSTANCE = new LevelRegistry();
+
     private final Map<String, Level> levels;
 
     public LevelRegistry() {
         this.levels = new HashMap<>();
+    }
+
+    public static LevelRegistry getInstance() {
+        return INSTANCE;
     }
 
     public Set<String> getLevels() {
@@ -37,5 +45,9 @@ public class LevelRegistry {
 
     public Level getLevel(String levelId) {
         return levels.get(levelId);
+    }
+
+    public void clear() {
+        levels.clear();
     }
 }
