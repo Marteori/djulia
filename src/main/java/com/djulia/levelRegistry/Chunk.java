@@ -61,7 +61,7 @@ public class Chunk {
 
     public Tile getObject(int localX, int localY) {
         if (!isInside(localX, localY)) {
-            return null;
+            return  new Tile("VOID");
         }
 
         return objects.get(objectKey(localX, localY));
